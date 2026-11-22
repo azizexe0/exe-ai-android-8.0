@@ -1,0 +1,43 @@
+EXE AI 8.0
+
+KORUNAN 6.0 OZELLIKLERI
+- Yazili sohbet, Android sesli giris ve Android TTS
+- Kamera fotografi / galeri secimi ve ML Kit OCR
+- SQLite kalici hafiza (exe_ai_memory.db, 6.0 verisi korunur)
+- TSV bilgi paketi ice aktarma
+- *** konu / ### konu ile web arastirmasi ve ogrenme
+- Uygulama adiyla yaklasik eslesmeyle acma
+- Wi-Fi / Bluetooth ayarlari kisayollari
+- DuckDuckGo + Bing RSS arastirmasi, sayfa metni cikarma, kaynak URL'leri
+- GitHub Actions APK derleme akisi (build-7.yml)
+
+8.0 YENILIKLERI
+- Siyah-kirmizi yeni arayuz; Sesli, Canli, Kamera, Gorsel, Dosya, Ses, Bilgi, Alarmlar, Hafiza, Sistem dugmeleri
+- Gizli API ayarlari: EXE AI basligina basili tut
+- Gemini REST entegrasyonu, anahtar EncryptedSharedPreferences'ta
+- Baglanti testi, model elle secimi, otomatik flash/pro secimi
+- Gorsel analizi (fotografi Gemini'ye gonderme)
+- API hatalarinin Turkce gosterimi
+- Turkce kisaltma ve yazim duzeltmesi (ChatNormalizer)
+- "efendim" hitabi, "Anlamadim efendim." yaniti, "Beni Aziz EXE kodladi." yaniti
+- EXE / Hey EXE algilama, "Evet efendim?" yaniti
+- Canli sesli sohbet modu
+- Ses ayarlari: ses secimi, ton, hiz, ornek dinleme, kalici kayit
+- Alarm ve hatirlatici: saate gore, dakika/saat sonrasi, tekrarli (her gun), listeleme, silme
+- Yeniden baslatmada alarm yeniden kurulur (BootReceiver)
+- Cihaz kontrolu: ses artirma/azaltma, kamera, galeri, Wi-Fi, Bluetooth
+- Hafiza: "hatirla: ..." ile kayit, listeleme, silme
+- Dosya ekleme: metin dosyasinin ilk 12.000 karakteri bir sonraki soruya eklenir
+- Sohbet gecmisi (history tablosu), Gemini'ye son 6 mesaj baglam olarak gider
+- Android 13+ icin bildirim izni istegi
+
+SINIRLAR (ACIK LISTE)
+- Gemini API anahtari kullanicidan alinir; anahtar olmadan yapay zeka cevabi yoktur.
+- Surekli arka plan mikrofon dinleme yoktur (Android kisitlamasi).
+- Guc tusu uc kez basma, kilit ekrani asistani, sistem genelinde yuzen panel yoktur.
+- WhatsApp mesaj gonderme yoktur.
+- Erisilebilirlik (AccessibilityService) ile ekran otomasyonu yoktur.
+- 1.000.000 kayitlik bilgi tabani yoktur; yalnizca 48 satirlik ornek paket ve sablon vardir.
+- Zamanlanmis gorev ve dosya arsivi ekrani yoktur.
+- Tam cevrim disi LLM yoktur; yalnizca yerel bilgi, hafiza ve komutlar cevrim disi calisir.
+- Derleme ve cihaz testi bu surumde yapilmamistir; GitHub Actions'ta dogrulanmalidir.
