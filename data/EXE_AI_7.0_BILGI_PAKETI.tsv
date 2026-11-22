@@ -1,0 +1,50 @@
+# Soru<TAB>Cevap<TAB>Kategori
+Arduino nedir?	Arduino, sensörleri ve elektronik bileşenleri kontrol etmek için kullanılan açık kaynaklı mikrodenetleyici kartları ve geliştirme ortamıdır.	arduino
+Arduino Uno nedir?	Arduino Uno, ATmega328P mikrodenetleyicili, başlangıç projelerinde sık kullanılan bir Arduino kartıdır.	arduino
+Arduino'da dijital pin nedir?	Dijital pin, HIGH veya LOW gibi iki temel lojik seviyeyi okumak ya da çıkış olarak vermek için kullanılır.	arduino
+Arduino'da analog pin ne işe yarar?	Analog giriş pinleri, desteklenen kartlarda sensörlerden gelen değişken gerilim seviyelerini ADC ile sayısal değere dönüştürerek okur.	arduino
+Arduino'da pinMode ne yapar?	pinMode, bir pini INPUT, OUTPUT veya desteklenen kartlarda INPUT_PULLUP olarak ayarlar.	arduino
+Arduino'da digitalWrite ne yapar?	digitalWrite, OUTPUT olarak ayarlanmış dijital pine HIGH veya LOW seviyesi gönderir.	arduino
+Arduino'da analogRead ne yapar?	analogRead, analog giriş pinindeki gerilimi kartın ADC çözünürlüğüne göre sayısal değer olarak okur.	arduino
+Arduino'da PWM nedir?	PWM, dijital çıkışı hızlı açıp kapatarak ortalama güç veya parlaklık kontrolü sağlayan darbe genişlik modülasyonudur.	arduino
+DHT11 sensörü ne ölçer?	DHT11, ortam sıcaklığı ve bağıl nem ölçümü için kullanılan temel bir sensördür.	arduino
+HC-SR04 ne işe yarar?	HC-SR04, ultrasonik ses darbelerinin gidiş-dönüş süresini ölçerek yaklaşık mesafe hesaplamak için kullanılır.	arduino
+LDR nedir?	LDR, üzerine düşen ışık miktarına göre direnci değişen ışığa duyarlı dirençtir.	arduino
+Servo motor nedir?	Servo motor, kontrol sinyaliyle belirli bir açısal konuma getirilebilen motordur.	arduino
+I2C nedir?	I2C, veri ve saat olmak üzere genellikle iki hat üzerinden birden fazla cihazı haberleştiren seri iletişim protokolüdür.	elektronik
+Direnç ne işe yarar?	Direnç, elektrik akımını sınırlar ve devrelerde gerilim bölme gibi görevlerde kullanılır.	elektronik
+LED nedir?	LED, üzerinden uygun yönde akım geçtiğinde ışık yayan yarı iletken diyottur.	elektronik
+Diyot ne işe yarar?	Diyot, akımın ağırlıklı olarak tek yönde geçmesine izin veren yarı iletken devre elemanıdır.	elektronik
+Transistör nedir?	Transistör, elektronik devrelerde anahtarlama veya sinyal yükseltme amacıyla kullanılan yarı iletken elemandır.	elektronik
+Kondansatör ne işe yarar?	Kondansatör elektrik alanında enerji depolar; filtreleme, zamanlama ve kuplaj devrelerinde kullanılır.	elektronik
+Ohm kanunu nedir?	Ohm kanunu, uygun koşullarda gerilim, akım ve direnç arasındaki ilişkiyi V eşittir I çarpı R şeklinde ifade eder.	elektronik
+Multimetre ne ölçer?	Multimetre, modeline göre gerilim, akım, direnç, süreklilik ve bazı ek elektriksel büyüklükleri ölçer.	elektronik
+CPU nedir?	CPU, program komutlarını işleyen ve bilgisayarın temel hesaplama işlemlerini yürüten merkezi işlem birimidir.	bilgisayar
+RAM nedir?	RAM, çalışan programların ve verilerin geçici olarak tutulduğu, enerji kesilince içeriği kaybolan bellektir.	bilgisayar
+SSD nedir?	SSD, verileri flash bellek yongalarında saklayan, hareketli mekanik parçası olmayan depolama aygıtıdır.	bilgisayar
+İşletim sistemi nedir?	İşletim sistemi, donanım kaynaklarını yöneten ve uygulamalara çalışma ortamı sağlayan temel sistem yazılımıdır.	bilgisayar
+Java nedir?	Java, sanal makine üzerinde çalışabilen, nesne yönelimli genel amaçlı bir programlama dilidir.	programlama
+Python nedir?	Python, okunabilir sözdizimiyle bilinen, otomasyon, veri bilimi, web ve yapay zekâ alanlarında kullanılan bir programlama dilidir.	programlama
+HTML nedir?	HTML, web sayfalarının içerik ve yapısının işaretlenmesini sağlayan standart biçimlendirme dilidir.	programlama
+CSS nedir?	CSS, HTML gibi belgelerin renk, yerleşim, yazı tipi ve görsel sunumunu tanımlar.	programlama
+API nedir?	API, yazılımların belirli kurallar üzerinden birbirleriyle veri alışverişi yapmasını veya işlev çağırmasını sağlayan arayüzdür.	yazilim
+Minecraft Bedrock nedir?	Minecraft Bedrock, Android, konsol ve Windows gibi farklı platformlarda bulunan Minecraft sürüm ailesidir.	minecraft
+Minecraft'ta redstone ne işe yarar?	Redstone, Minecraft'ta sinyal iletimi ve otomatik mekanizmalar kurmak için kullanılan oyun içi sistemdir.	minecraft
+Minecraft'ta chunk nedir?	Chunk, Minecraft dünyasının yükleme ve dünya verisi yönetiminde kullanılan 16×16 blokluk yatay bölgesidir.	minecraft
+Menemen nasıl yapılır?	Soğan isteğe bağlı olarak yağda yumuşatılır, doğranmış biber eklenir. Domatesler pişince çırpılmış yumurta ilave edilir ve yumurta istenen kıvama gelene kadar karıştırılır.	yemek
+Mercimek çorbası nasıl yapılır?	Yıkanmış kırmızı mercimek; soğan, havuç ve su veya et suyuyla yumuşayana kadar pişirilir. Blenderdan geçirilir, tuz ve baharat eklenir.	yemek
+Pirinç pilavı nasıl yapılır?	Pirinç yıkanıp süzülür. Yağda kısa süre kavrulur, uygun ölçüde sıcak su ve tuz eklenir. Kısık ateşte suyunu çekene kadar pişirilip dinlendirilir.	yemek
+Krep nasıl yapılır?	Yumurta, süt, un ve az tuz pürüzsüz olana kadar çırpılır. Hafif yağlanmış tavada ince tabaka halinde iki tarafı pişirilir.	yemek
+Patates püresi nasıl yapılır?	Haşlanmış patates ezilir; ılık süt, tereyağı ve tuz eklenerek pürüzsüz kıvama gelene kadar karıştırılır.	yemek
+Mercimek köftesi nasıl yapılır?	Kırmızı mercimek suyla yumuşayana kadar pişirilir, ince bulgur eklenip şişirilir. Soğanlı salçalı karışım ve yeşilliklerle yoğrulur.	yemek
+Kek nasıl yapılır?	Yumurta ve şeker çırpılır; süt, yağ, un ve kabartma tozu eklenir. Karışım kalıba dökülür ve önceden ısıtılmış fırında pişirilir.	yemek
+Yoğurt çorbası nasıl yapılır?	Yoğurt, yumurta ve un pürüzsüz karıştırılır; ılık suyla ısı dengelenerek tencereye alınır. Karıştırarak pişirilir ve isteğe göre nane eklenir.	yemek
+Tost nasıl yapılır?	Ekmek arasına peynir ve istenen malzemeler konur. Tost makinesinde ekmek kızarıp peynir eriyene kadar pişirilir.	yemek
+Omlet nasıl yapılır?	Yumurtalar tuzla çırpılır. Hafif yağlanmış tavaya dökülür ve kısık-orta ateşte istenen kıvama gelene kadar pişirilir.	yemek
+Su kaç derecede kaynar?	Deniz seviyesinde saf su yaklaşık 100 °C'de kaynar; kaynama noktası basınca ve çözünmüş maddelere göre değişir.	bilim
+Fotosentez nedir?	Fotosentez, bitkilerin ve bazı canlıların ışık enerjisini kullanarak karbondioksit ve sudan kimyasal enerji içeren organik maddeler üretmesidir.	bilim
+Yerçekimi nedir?	Yerçekimi, kütleli cisimlerin birbirini çekmesine neden olan temel etkileşimdir.	bilim
+Güneş sistemi nedir?	Güneş sistemi, Güneş'i ve onun kütleçekimiyle bağlı gezegenleri, uyduları, küçük cisimleri ve diğer gök cisimlerini kapsar.	uzay
+Dünya'nın uydusu nedir?	Dünya'nın doğal uydusu Ay'dır.	uzay
+İnternet nedir?	İnternet, dünya çapındaki ağların ortak protokollerle birbirine bağlandığı küresel iletişim ağıdır.	genel
+  
