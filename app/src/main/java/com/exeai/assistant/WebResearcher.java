@@ -15,7 +15,7 @@ import java.util.Map;
 
 /** Public-web research without an API key. Reads accessible search results and pages. */
 public final class WebResearcher {
-    private static final String UA = "Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36 Chrome/120 Mobile Safari/537.36 EXEAI/8.0";
+    private static final String UA = "Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36 Chrome/120 Mobile Safari/537.36 EXEAI/9.0";
     private WebResearcher() {}
 
     public static final class Result {

@@ -12,5 +12,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "EXE_AI_8.0"
+rootProject.name = "EXE_AI_9.0"
 include(":app")

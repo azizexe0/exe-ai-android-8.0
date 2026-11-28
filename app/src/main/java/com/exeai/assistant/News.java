@@ -31,7 +31,7 @@ public final class News {
         HttpURLConnection conn = (HttpURLConnection) new URL(FEED).openConnection();
         conn.setConnectTimeout(8000);
         conn.setReadTimeout(10000);
-        conn.setRequestProperty("User-Agent", "Mozilla/5.0 (Android) EXE-AI/8.0");
+        conn.setRequestProperty("User-Agent", "Mozilla/5.0 (Android) EXE-AI/9.0");
         try {
             int code = conn.getResponseCode();
             if (code != 200) throw new IllegalStateException("haber kaynağı yanıt vermedi (" + code + ")");

@@ -176,13 +176,22 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout mainLayout = null;   // the normal screen (top bar, chat, bottom bar)
     private ArcReactorView secretReactor = null;
 
+    private static String orbKey(long sessionId) {
+        return "orb_" + sessionId;
+    }
+
+    /** Turns the orb on or off for the current chat. The setting is saved, so it stays after restarts. */
+    private void setOrbForSession(boolean on) {
+        prefs.edit().putBoolean(orbKey(currentSession), on).apply();
+        applySecretMode(on);
+    }
+
     /**
      * Shows or hides the red arc reactor behind the normal screen. The menus and chat stay as they are;
-     * only the black background is replaced by the orb. Type 5087 again to hide it.
-     * While it is on, replies are shown as text only, not spoken.
+     * only the black background is replaced by the orb. While it is on, replies are shown as text only, not spoken.
      */
-    private void toggleSecretMode() {
-        secretMode = !secretMode;
+    private void applySecretMode(boolean on) {
+        secretMode = on;
         if (secretMode) {
             if (secretReactor == null && stageLayout != null) {
                 secretReactor = new ArcReactorView(this);
@@ -413,6 +422,7 @@ public class MainActivity extends AppCompatActivity {
     private void newSession() {
         currentSession = db.createSession("Yeni sohbet");
         chat.removeAllViews();
+        applySecretMode(false);
         addMessage("EXE AI hazır efendim. Yazabilir, sesli konuşabilir, dosya ya da fotoğraf ekleyebilirsin.", false);
         drawer.closeDrawer(GravityCompat.START);
         refreshSessionList();
@@ -424,6 +434,7 @@ public class MainActivity extends AppCompatActivity {
         for (String[] row : db.loadSession(sessionId)) {
             addMessage(row[1], "user".equals(row[0]));
         }
+        applySecretMode(prefs.getBoolean(orbKey(sessionId), false));
         drawer.closeDrawer(GravityCompat.START);
         refreshSessionList();
     }
@@ -510,7 +521,14 @@ public class MainActivity extends AppCompatActivity {
     /** Central routing: math, learning command, memory, reminders, device, local knowledge, then Gemini or web. */
     private void handleMessage(String raw) {
         if (raw.trim().equals("5087")) {
-            toggleSecretMode();
+            setOrbForSession(true);
+            reply("Animasyon açıldı efendim. Kapatmak için *animasyonkapat* yaz.");
+            return;
+        }
+        String compact = raw.trim().toLowerCase(new Locale("tr", "TR")).replace("*", "").replace(" ", "");
+        if (compact.equals("animasyonkapat")) {
+            setOrbForSession(false);
+            reply("Animasyonu kapattım efendim.");
             return;
         }
         if (isPlainMath(raw.trim())) {
@@ -1124,8 +1142,21 @@ public class MainActivity extends AppCompatActivity {
             reply("Sistem ayarlarını açtım efendim.");
             return true;
         }
+        if (TextUnderstanding.containsIntent(s, "on kamerayi ac", "on kamera ac", "selfie kamerasi ac")) {
+            openInAppCamera(true);
+            return true;
+        }
         if (TextUnderstanding.containsIntent(s, "kamerayi ac", "kamera ac")) {
-            openCamera();
+            openInAppCamera(false);
+            return true;
+        }
+        if (TextUnderstanding.containsIntent(s, "kamerayi kapat", "kamera kapat")) {
+            if (inAppCamera != null && inAppCamera.isOpen()) {
+                inAppCamera.close();
+                reply("Kamerayı kapattım efendim.");
+            } else {
+                reply("Açık bir kamera yok efendim.");
+            }
             return true;
         }
         if (TextUnderstanding.containsIntent(s, "galeriyi ac", "galeri ac")) {
@@ -1421,13 +1452,9 @@ public class MainActivity extends AppCompatActivity {
 
     // ---------- photo, camera, files ----------
 
+    /** Camera button: opens the preview inside EXE AI. */
     private void openCamera() {
-        Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (i.resolveActivity(getPackageManager()) != null) {
-            startActivityForResult(i, CAMERA);
-        } else {
-            addMessage("Bu cihazda kamera uygulaması bulunamadı.", false);
-        }
+        openInAppCamera(false);
     }
 
     private void pickImage() {
@@ -1540,6 +1567,42 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == NOTIFY_PERMISSION && (grantResults.length == 0 || grantResults[0] != PackageManager.PERMISSION_GRANTED)) {
             addMessage("Bildirim izni verilmedi; alarmlar çalışsa da bildirim gösterilemeyebilir.", false);
         }
+        if (requestCode == CAMERA_PERMISSION) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                openInAppCamera(pendingCameraFront);
+            } else {
+                addMessage("Kamera izni verilmedi efendim.", false);
+            }
+        }
+    }
+
+    // ---------- in-app camera ----------
+
+    private static final int CAMERA_PERMISSION = 49;
+    private InAppCamera inAppCamera = null;
+    private boolean pendingCameraFront = false;
+
+    /** Opens the camera preview inside EXE AI. front = true uses the front camera. */
+    private void openInAppCamera(boolean front) {
+        if (checkSelfPermission(android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            pendingCameraFront = front;
+            requestPermissions(new String[]{android.Manifest.permission.CAMERA}, CAMERA_PERMISSION);
+            return;
+        }
+        if (inAppCamera == null) {
+            inAppCamera = new InAppCamera(this, new InAppCamera.Listener() {
+                @Override
+                public void onPhoto(Bitmap bitmap) {
+                    keepPhoto(bitmap);
+                }
+
+                @Override
+                public void onError(String message) {
+                    addMessage(message, false);
+                }
+            });
+        }
+        inAppCamera.open(front);
     }
 
     @Override
